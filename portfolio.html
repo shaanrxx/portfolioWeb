@@ -8,18 +8,29 @@
     <script src="https://kit.fontawesome.com/093248551b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 
+    <style>
+        #header{
+        width: 100%;
+        height: 50vh;
+        z-index: 2;
+        top:0;
+    }
+
+    </style>
+
 </head>
 <body>
 
 <!------------------------ nav bar ----------------------->
 <div id="header">
     <div class="container">
-        <img src="/images/Shaan Rehsi.png" class="logo">
+        <a href="index.html">
+        <img src="/images/Shaan Rehsi.png" class="logo"></a>
         <nav>
             <ul class="sidemenu">
-                <li><a href="#header">Home</a></li>   
-                <li><a href="portfolio.html">Portfolio</a></li> 
-                <li><a href="#favourites">Favourites</a></li>  
+                <li><a href="index.html">Home</a></li>   
+                <li><a href="#">Portfolio</a></li> 
+                <!-- <li><a href="#favourites">Favourites</a></li>   -->
                 <li><a href="#about">About</a></li>  
                 <li><a href="#contact">Contact</a></li>  
             <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
@@ -27,24 +38,42 @@
             <i class="fa-solid fa-bars" onclick="openmenu()"></i>
         </nav>
         <div class="header-text">
-            <p>Personal Portfolio</p>
-            <h1>HI IM SHAAN REHSI</h1>
+            <h1 class="sub-title"> My Projects </h1>
+            <p>Here are my projects over the course of my first and second year of university</p>
         </div>
     </div>
 </div>
 
-<!--------------------------- PORTFOLIO --------------------------->
+<!-------------------------------- PORTFOLIO --------------------------------->
+
 <div id="favourites">
     <div class="container">
-        <h1 class="sub-title"> Favourite Projects </h1>
+        <!-- <h1 class="sub-title"> Favourite Projects </h1> -->
         <div class="work-list">
             <div class="work">
-                <a href ="#">
+                <a href ="python.html">
                 <img src="/images/maze.png" alt="maze game python">
                     <div class="layer">
                     <h3>Python</h3></a>
                 </div>
             </div>
+
+            <div class="work">
+                <a href ="#">
+                <img src="/images/arduino.png" alt="Arduino">
+                    <div class="layer">
+                    <h3>p5.js</h3></a>
+                </div>
+            </div>
+
+            <div class="work">
+                <a href ="#">
+                <img src="/images/html.png" alt="Web Design">
+                    <div class="layer">
+                    <h3>Web Design</h3></a>
+                </div>
+            </div>
+
 
             <div class="work">
                 <a href ="#">
@@ -62,9 +91,15 @@
                 </div>
             </div>
 
-        
+            <div class="work">
+                <a href ="#">
+                <img src="/images/tree.png" alt="maze game python">
+                <div class="layer">
+                    <h3>Processing</h3></a>
+                </div>
+            </div>
         </div>
-        <a href ="#" class="btn">More Projects</a>
+        <a href ="#header" class="btn">Back to Top</a>
     </div>
 </div>
 
