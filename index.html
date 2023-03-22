@@ -15,13 +15,16 @@
 <div id="header">
     <div class="container">
         <nav>
-            <img src="Shaan Rehsi.png" class="logo">
-            <ul>
-                <li><a href="#">Home</a></li>   
-                <li><a href="#">About</a></li>  
-                <li><a href="#">Portfolio</a></li>  
-                <li><a href="#">Contact</a></li>  
+            <img src="/images/Shaan Rehsi.png" class="logo">
+            <ul id="sidemenu">
+                <li><a href="#header">Home</a></li>   
+                <li><a href="#">Portfolio</a></li> 
+                <li><a href="#favourites">Favourites</a></li>  
+                <li><a href="#about">About</a></li>  
+                <li><a href="#contact">Contact</a></li>  
+            <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
             </ul>
+            <i class="fa-solid fa-bars" onclick="openmenu()"></i>
         </nav>
         <div class="header-text">
             <p>Personal Portfolio</p>
@@ -31,13 +34,13 @@
 </div>
 
 <!--------------------------- PORTFOLIO --------------------------->
-<div id="portfolio">
+<div id="favourites">
     <div class="container">
         <h1 class="sub-title"> Favourite Projects </h1>
         <div class="work-list">
             <div class="work">
                 <a href ="#">
-                <img src="maze.png" alt="maze game python">
+                <img src="/images/maze.png" alt="maze game python">
                     <div class="layer">
                     <h3>Python</h3></a>
                 </div>
@@ -45,7 +48,7 @@
 
             <div class="work">
                 <a href ="#">
-                <img src=" game controller final.png" alt="VR Art Therapy">
+                <img src="/images/game controller final.png" alt="VR Art Therapy">
                 <div class="layer">
                     <h3>VR Art Therapy</h3></a>
                 </div>
@@ -53,7 +56,7 @@
 
             <div class="work">
                 <a href ="#">
-                <img src="1.png" alt="P5.js">
+                <img src="/images/1.png" alt="P5.js">
                     <div class="layer">
                     <h3>p5.js</h3></a>
                 </div>
@@ -61,7 +64,7 @@
 
             <div class="work">
                 <a href ="#">
-                <img src="tree.png" alt="maze game python">
+                <img src="/images/tree.png" alt="maze game python">
                 <div class="layer">
                     <h3>Processing</h3></a>
                 </div>
@@ -76,7 +79,7 @@
     <div class="container">
         <div class="row">
             <div class="about-col-1">
-                <img src="cat4.png">   
+                <img src="/images/cat4.png">   
             </div>
             <div class="about-col-2">
                 <h1 class="sub-title">About Me</h1>
@@ -129,17 +132,23 @@
                     <a href="https://www.tiktok.com/@shapesandjapes"><i class="fab fa-tiktok"></i></a>
                     <a href=""><i class="fa-solid fa-envelope"></i></a>
                 </div>
+                <a href="/images/Shaan Rehsi CV 2023.pdf" download class="btn btn2">Download CV</a>
             </div>
                 <div class="contact-right">
-                    <form>
+                    <form name="submit-to-google-sheet">
                         <input type="text" name="FirstName" placeholder="First Name: " required>
                         <input type="text" name="LastName" placeholder="Surname: " required>
                         <input type="email" name="email" placeholder="Email: " required>
                         <textarea name="Message" rows="6" placeholder="Your Message: "></textarea>
-                        <button type="submit">Submit</button>
+                        <button type="submit" class="btn btn2">Submit</button>
                     </form>
+                    <span id="msg"></span>
             </div>
         </div>
+    </div>
+    <div class="copyright">
+        <p>
+            © 2023 Copyright: Created by: Shaan K Rehsi</p>
     </div>
 </div>
 
@@ -158,6 +167,38 @@
         document.getElementById(tabname).classList.add("active-tab");
     }
 </script>
+
+<script>
+    var sidemenu = document.getElementById("sidemenu");
+        
+    function openmenu(){
+        sidemenu.style.right = "0"
+    }
+    function closemenu(){
+        sidemenu.style.right = "-200px"
+    }
+</script>
+
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbw5k_VanyFZIfU0IT9e7FIOOxLgJ7_Cpw1TycQjwR4BaKXuepf-lAtmw4A9uuy3S2IKUw/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent successfully"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            }, 5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+
 
 </body>
 </html>
